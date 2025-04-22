@@ -6,6 +6,7 @@ type Post = {
   title: string;
 };
 
+
 const PostsLists = async () => {
 
  const response = await fetch('http://localhost:3000/posts');
