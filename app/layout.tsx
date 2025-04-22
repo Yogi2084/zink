@@ -3,18 +3,17 @@
 import React, { PropsWithChildren } from "react";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import { QueryClientProvider } from "@tanstack/react-query";
-import { tanstackQueryClinet } from "./lib/integration/tanstack";
-
+import TanstackProvider from "../components/tanstack-provider/TanstackProvider";
 const inter = Inter({ subsets: ["latin"] });
 const RootLayout = ( props: PropsWithChildren ) => {
   return (
-    <QueryClientProvider client={tanstackQueryClinet}>
-    <html lang="en" className={inter.className}>
-      <body>{props.children}</body>
-    </html>
-    </QueryClientProvider>
+      <html lang="en" className={inter.className}>
+        <body>
+          <TanstackProvider>
+          {props.children}
+          </TanstackProvider>
+        </body>
+      </html>
   );
 }
-
 export default RootLayout;
